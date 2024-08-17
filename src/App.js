@@ -1,32 +1,36 @@
 import './App.css';
 import React from 'react';
 import { useState } from 'react';
-import getMockAthletes from './services/api';
-import AthleteCard from './components/AthleteCard/AthleteCard';
+import fetchDrivers from './services/api';
+import DriverCard from './components/DriverCard/DriverCard';
 
 function App() {
-  const [athletes, setAthletes] = useState([]);
+  const [drivers, setDrivers] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
+
   const handleSearch = async () => {
-    const result = await getMockAthletes(searchTerm);
-    setAthletes(result);
+    const result = await fetchDrivers(searchTerm);
+
+    console.log('result', result);
+    
+    setDrivers(result);
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>Pesquise por um atleta</p>
+        <p>Pesquise por um piloto</p>
         <input 
           type="text" 
-          placeholder="Digite o nome do atleta" 
+          placeholder="Digite o nome do piloto" 
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button onClick={handleSearch}>Pesquisar</button>
         
-        {athletes.length > 0 && (
-          <AthleteCard athlete={athletes[0]} />
+        {drivers.length > 0 && (
+          <DriverCard driver={drivers[0]} />
         )}
       </header>
     </div>
