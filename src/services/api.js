@@ -6,13 +6,14 @@ export default function fetchDrivers(searchTerm) {
 
     const options = {
         method: 'GET',
-        url: `https://v1.formula-1.api-sports.io/drivers`,
+        url: `https://${process.env.REACT_APP_API_HOST}/drivers`,
         params: { search: searchTerm },
         headers: {
-            'x-rapidapi-host': 'v1.formula-1.api-sports.io',
-            'x-rapidapi-key': ''
+            'x-rapidapi-host': process.env.REACT_APP_API_HOST,
+            'x-rapidapi-key': process.env.REACT_APP_API_KEY
         }
     };
+
 
     return axios.request(options)
         .then(response => {
