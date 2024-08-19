@@ -3,7 +3,7 @@ import './DriverCard.css';
 import { addFavorite, removeFavorite} from '../../services/favorite';
 
 const DriverCard = ({ driver}) => {
-    const { nome, img, isFavorite } = driver;
+    const { id, nome, img, podium, nacionality, world_championships, isFavorite } = driver;
 
     const handleFavoriteClick = () => {
         if (!isFavorite) {
