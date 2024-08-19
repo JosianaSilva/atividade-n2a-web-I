@@ -26,15 +26,17 @@
 
 .slogan {
   position: absolute;
-  top: 60%;
-  left: 150px; /* Ajuste conforme necessário */
+  top: 50%;
+  left: 200px; 
   transform: translateY(-50%);
-  font-size: 20px; /* Ajuste o tamanho da fonte conforme necessário */
+  font-size: 22px; 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color:black; /* Escolha a cor que contraste bem com o fundo do banner */
-  max-width: 900px; /* Ajuste a largura máxima conforme necessário */
+  color:#11aeda; 
+  max-width: 900px; 
   text-align: left;
-  line-height: 1.4; /* Melhora a legibilidade */
+  line-height: 1.4; 
+  text-shadow: 2px 2px 4px rgb(0, 0, 0), 
+               4px 4px 6px rgba(0, 0, 0, 0.514);
 }
 
 /* Estilo do logotipo */
@@ -86,8 +88,8 @@
 .search-container {
   position: relative;
   width: 100%;
-  max-width: 500px; /* Limita a largura máxima */
-  margin-top: 300px;
+  max-width: 500px; 
+  margin-top: 100px;
   margin-bottom: 50px;
 }
 
@@ -99,7 +101,7 @@ input#search-input {
   border: 2px solid gray;
   border-radius: 50px;
   outline: none;
-  text-align: left; /* Alinha o texto à esquerda */
+  text-align: left; 
   transition: box-shadow 0.3s ease;
 }
 
@@ -125,8 +127,8 @@ button#search-action {
 /* Estilo da seta */
 .arrow-container {
   display: block;
-  width: 18px; /* Largura menor */
-  height: 15px; /* Altura menor */
+  width: 18px; 
+  height: 15px; 
 }
 
 .arrow {
@@ -140,9 +142,9 @@ button#search-action {
     display: block;
     position: absolute;
     transform-origin: bottom right;
-    background: black; /* Cor da linha */
-    width: 2.5px; /* Largura da linha menor */
-    height: 16px; /* Comprimento da linha menor */
+    background: black; 
+    width: 2.5px; 
+    height: 16px; 
     border-radius: 10px;
     transform: translate(-50%, -50%) rotateZ(-45deg);
   }

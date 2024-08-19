@@ -4,7 +4,6 @@ import fetchDrivers from './services/api';
 import DriverCard from './components/DriverCard/DriverCard';
 import logo from './assets/logo.png';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { buildQueries } from '@testing-library/react';
 
 function App() {
   const [drivers, setDrivers] = useState([]);
@@ -18,19 +17,22 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <div className="banner">
-        <div className="slogan">
-          <h1>
-            Encontre e Explore<br/>
-            Informações Sobre<br/> 
-            Seu Piloto Favorito!
-          </h1>
+        <div className="banner">
+          <div className="slogan">
+            <h1>
+              Encontre o Seu <br/>
+              Piloto Favorito!
+            </h1>
           </div>
-      </div>
+        </div>
+
         <img src={logo} className="App-logo" alt="logo" />
         
         {/* Botão de atalho para o campo de pesquisa */}
-        <button className="search-button" onClick={() => document.getElementById('search-input').scrollIntoView({ behavior: 'smooth' })}>
+        <button 
+          className="search-button" 
+          onClick={() => document.getElementById('search-input').scrollIntoView({ behavior: 'smooth' })}
+        >
           <i className="fas fa-search"></i> {/* Ícone de pesquisa */}
         </button>
 
@@ -44,13 +46,16 @@ function App() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
 
-        <button id="search-action" onClick={handleSearch} className="arrow-container">
-          <div className="arrow"></div>
-          <div className="arrow"></div>
-          <div className="arrow"></div>  
-        </button>
-
-          </div>
+          <button 
+            id="search-action" 
+            onClick={handleSearch} 
+            className="arrow-container"
+          >
+            <div className="arrow"></div>
+            <div className="arrow"></div>
+            <div className="arrow"></div>  
+          </button>
+        </div>
         
         {drivers.length > 0 && <DriverCard driver={drivers[0]} />}
       </header>
@@ -59,5 +64,6 @@ function App() {
 }
 
 export default App;
+
 
 
