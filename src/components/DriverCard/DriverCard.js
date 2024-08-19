@@ -3,7 +3,7 @@ import './DriverCard.css';
 import { addFavorite, removeFavorite} from '../../services/favorite';
 
 const DriverCard = ({ driver}) => {
-    const { id, nome, img, podium, nacionality, world_championships, isFavorite } = driver;
+    const {nome, img, podiums, nationality, world_championships, isFavorite } = driver;
 
     const handleFavoriteClick = () => {
         if (!isFavorite) {
@@ -18,6 +18,9 @@ const DriverCard = ({ driver}) => {
             <img src={img} alt={nome} className="driver-card__image" />
             <div className="driver-card__info">
                 <h2 className="driver-card__name">{nome}</h2>
+                <p className="driver-card__nationality"><strong>Nacionalidade:</strong> {nationality}</p>
+                <p className="driver-card__podiums"><strong>Pódios:</strong> {podiums}</p>
+                <p className="driver-card__world-championships"><strong>Campeonatos Mundiais:</strong> {world_championships}</p>
                 <button 
                     className={`driver-card__favorite-button ${isFavorite ? 'favorite' : ''}`}
                     onClick={handleFavoriteClick}
