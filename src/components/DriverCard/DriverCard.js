@@ -1,12 +1,13 @@
 import React from 'react';
 import './DriverCard.css'; 
-import { addFavorite, removeFavorite} from '../../services/favorite';
+import { addFavorite, removeFavorite, isFavorite} from '../../services/favorite';
 
 const DriverCard = ({ driver}) => {
-    const {nome, img, podiums, nationality, world_championships, isFavorite } = driver;
+    const {nome, img, podiums, nationality, world_championships } = driver;
+
 
     const handleFavoriteClick = () => {
-        if (!isFavorite) {
+        if (!isFavorite(driver)) {
             addFavorite(driver);
         } else {
             removeFavorite(driver);
@@ -22,10 +23,10 @@ const DriverCard = ({ driver}) => {
                 <p className="driver-card__podiums"><strong>Pódios:</strong> {podiums}</p>
                 <p className="driver-card__world-championships"><strong>Campeonatos Mundiais:</strong> {world_championships}</p>
                 <button 
-                    className={`driver-card__favorite-button ${isFavorite ? 'favorite' : ''}`}
+                    className={`driver-card__favorite-button ${isFavorite(driver) ? 'favorite' : ''}`}
                     onClick={handleFavoriteClick}
                 >
-                    {isFavorite ? 'Unfavorite' : 'Favorite'}
+                    {isFavorite(driver) ? 'Unfavorite' : 'Favorite'}
                 </button>
             </div>
         </div>
