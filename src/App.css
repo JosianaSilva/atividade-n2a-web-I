@@ -47,49 +47,42 @@
 
 /* Adicionar margem ao conteúdo para evitar sobreposição com a navbar */
 .App-header {
-  margin-top: 10px; /* Ajuste conforme necessário */
+  margin-top: 50px; /* Ajuste conforme necessário */
 }
 
 /* Estilo do banner de fundo */
 .banner {
   width: 100vw;
   height: 100vh;
-  background: url('./assets/banner2.png');
+  background: url('./assets/banner.png');
   background-size: cover;
   background-position: center;
+  padding-top: 100px;
   position: relative;
   animation: moveBanner 2s ease-in-out 1;
 }
 
-@media (max-width: 1200px) {
-  .banner {
-    height: 80vh;
-  }
-}
-
+/* Media query para adaptar o banner em dispositivos menores */
 @media (max-width: 768px) {
   .banner {
-    height: 40vh;
-    background-position: top;
+    height: 40vh; /* Reduz um pouco a altura em telas menores */
+    padding-top: 30px; /* Ajuste o padding-top para manter o conteúdo visível */
   }
 }
 
 @media (max-width: 480px) {
   .banner {
-    height: 30vh;
-    background-size: contain;
-    background-position: center;
+    height: 40vh; /* Altura ainda menor em telas de celular */
+    padding-top: 30px;
   }
 }
 
-.banner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 700px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 50%);
+/* Media query para telas muito largas */
+@media (min-width: 1920px) {
+  .banner {
+    height: 90vh; /* Mantém o banner visível sem exagerar na altura */
+    padding-top: 500px;
+  }
 }
 
 /* Estilo do logotipo */
