@@ -64,7 +64,7 @@
 
 /* Adicionar margem ao conteúdo para evitar sobreposição com a navbar */
 .App-header {
-  margin-top: 35px; /* Ajuste conforme necessário */
+  margin-top: 35px; 
 }
 
 /* Estilo do banner de fundo */
@@ -82,21 +82,14 @@
 /* Media query para adaptar o banner em dispositivos menores */
 @media (max-width: 768px) {
   .banner {
-    height: 40vh; /* Reduz um pouco a altura em telas menores */
-    padding-top: 35px; /* Ajuste o padding-top para manter o conteúdo visível */
-  }
-}
-
-@media (max-width: 480px) {
-  .banner {
-    height: 30vh; /* Altura ainda menor em telas de celular */
-    padding-top: 30px;
+    height: 40vh; 
+    padding-top: 35px; 
   }
 }
 
 @media (min-width: 2560px) {
   .banner {
-    height: 90vh; /* Mantém o banner visível sem exagerar na altura */
+    height: 90vh; 
     padding-top: 200px;
   }
 }
@@ -123,8 +116,6 @@
   font-size: calc(10px + 2vmin);
   color: black;
 }
-
-
 body  {
   background-color: white;
   min-height: 100vh;
@@ -135,9 +126,6 @@ body  {
   font-size: calc(10px + 2vmin);
   color: black;
 }
-
-
-
 /* Estilo do container do campo de pesquisa */
 body .search-container {
   position: relative;
@@ -235,20 +223,24 @@ button#search-action {
   }
 }
 
-
 /* Estilo do container de favoritos */
 .favorites-container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 20px;
-  margin-left: 16%;
-  margin-right: 16%;
-  margin-top: 50px;
+  padding: 30px;
+  margin: 100px auto; 
+  max-width: 800px; 
+  background-color: #fff; 
+  border-radius: 30px; 
+  box-shadow: 0 4px 12px #a00000; 
+  border: 2.5px solid #a00000; 
 }
 
+/* Estilo das cartas de favoritos */
 .favorites-cards {
-  margin: 30px;
   display: flex;
-  /*flex-wrap: wrap;
-  align-items: center;*/
-  gap: 0.5cm; 
+  flex-wrap: wrap;
+  gap: 30px; 
+  justify-content: center; 
 }
