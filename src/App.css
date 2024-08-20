@@ -3,15 +3,83 @@
   text-align: center;
 }
 
+/* Estilo da navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 35px;
+  background-color: #a00000;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar.visible {
+  transform: translateY(0);
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.navbar-logo {
+  height: 40px;
+}
+
+.navbar-search-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  right: 30px;
+}
+
+.navbar-search-button i {
+  font-size: 24px;
+}
+
+/* Adicionar margem ao conteúdo para evitar sobreposição com a navbar */
+.App-header {
+  margin-top: 10px; /* Ajuste conforme necessário */
+}
+
 /* Estilo do banner de fundo */
 .banner {
   width: 100vw;
   height: 100vh;
-  background: url('./assets/banner.png');
+  background: url('./assets/banner2.png');
   background-size: cover;
   background-position: center;
   position: relative;
   animation: moveBanner 2s ease-in-out 1;
+}
+
+@media (max-width: 1200px) {
+  .banner {
+    height: 80vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 40vh;
+    background-position: top;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 30vh;
+    background-size: contain;
+    background-position: center;
+  }
 }
 
 .banner::before {
@@ -20,23 +88,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 500px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 70%);
-}
-
-.slogan {
-  position: absolute;
-  top: 50%;
-  left: 200px; 
-  transform: translateY(-50%);
-  font-size: 22px; 
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color:#11aeda; 
-  max-width: 900px; 
-  text-align: left;
-  line-height: 1.4; 
-  text-shadow: 2px 2px 4px rgb(0, 0, 0), 
-               4px 4px 6px rgba(0, 0, 0, 0.514);
+  height: 700px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 50%);
 }
 
 /* Estilo do logotipo */
@@ -47,29 +100,6 @@
   top: 10px;
   left: 20px;
   width: auto;
-}
-
-/* Botão de pesquisa no canto superior direito */
-.search-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  outline: none;
-  transition: background-color 0.3s, transform 0.3s;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.search-button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  transform: scale(1.1);
-}
-
-.search-button i {
-  font-size: 24px;
-  color: #333;
 }
 
 /* Estilo do cabeçalho da aplicação */
