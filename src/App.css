@@ -210,3 +210,20 @@ button#search-action {
     transform: scale(1); 
   }
 }
+
+/* Estilo do container de favoritos */
+.favorites-container {
+  align-items: center;
+  padding: 20px;
+  margin-left: 16%;
+  margin-right: 16%;
+  margin-top: 50px;
+}
+
+.favorites-cards {
+  margin: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5cm; 
+}

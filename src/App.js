@@ -2,6 +2,8 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import fetchDrivers from './services/api';
 import DriverCard from './components/DriverCard/DriverCard';
+import FavoriteCard from './components/FavoriteCard/FavoriteCard';
+import { getFavorites } from './services/favorite';
 import logo from './assets/logo.png';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -14,6 +16,12 @@ function App() {
   const handleSearch = async () => {
     const result = await fetchDrivers(searchTerm);
     setDrivers(result);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
   };
 
   useEffect(() => {
@@ -59,7 +67,8 @@ function App() {
             type="text"
             placeholder="Digite o nome do piloto"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}   
+            onKeyDown={handleKeyDown} 
           />
 
           <button
@@ -73,7 +82,25 @@ function App() {
           </button>
         </div>
 
+        <div className="search-results">
         {drivers.length > 0 && <DriverCard driver={drivers[0]} />}
+        </div>
+
+        <div className='favorites-container'>
+
+          <fieldset class="favorites-fieldset">
+              <legend>Favoritos</legend>
+              <div class="favorites-cards">
+                {getFavorites().map((favorite, index) => (
+                <FavoriteCard favorite={favorite} />
+              ))}
+              </div>
+          </fieldset>
+
+          
+        </div>
+
+
       </header>
     </div>
   );
