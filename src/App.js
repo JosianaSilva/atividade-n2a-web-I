@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import fetchDrivers from './services/api';
 import DriverCard from './components/DriverCard/DriverCard';
 import logo from './assets/logo.png';
@@ -8,33 +8,49 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 function App() {
   const [drivers, setDrivers] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleSearch = async () => {
     const result = await fetchDrivers(searchTerm);
     setDrivers(result);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        // Rolando para baixo, esconder navbar
+        setIsNavbarVisible(false);
+      } else {
+        // Rolando para cima, mostrar navbar
+        setIsNavbarVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <div className="banner">
-          <div className="slogan">
-            <h1>
-              Encontre o Seu <br/>
-              Piloto Favorito!
-            </h1>
-          </div>
-        </div>
-
-        <img src={logo} className="App-logo" alt="logo" />
-        
-        {/* Botão de atalho para o campo de pesquisa */}
-        <button 
-          className="search-button" 
+      {/* Barra superior */}
+      <nav className={`navbar ${isNavbarVisible ? 'visible' : 'hidden'}`}>
+        <img src={logo} className="navbar-logo" alt="logo" />
+        <button
+          className="navbar-search-button"
           onClick={() => document.getElementById('search-input').scrollIntoView({ behavior: 'smooth' })}
         >
-          <i className="fas fa-search"></i> {/* Ícone de pesquisa */}
+          <i className="fas fa-search"></i>
         </button>
+      </nav>
+
+      <header className="App-header">
+        <div className="banner">
+        </div>
 
         {/* Container para o campo de input e o botão de pesquisa */}
         <div className="search-container">
@@ -46,17 +62,17 @@ function App() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
 
-          <button 
-            id="search-action" 
-            onClick={handleSearch} 
+          <button
+            id="search-action"
+            onClick={handleSearch}
             className="arrow-container"
           >
             <div className="arrow"></div>
             <div className="arrow"></div>
-            <div className="arrow"></div>  
+            <div className="arrow"></div>
           </button>
         </div>
-        
+
         {drivers.length > 0 && <DriverCard driver={drivers[0]} />}
       </header>
     </div>
