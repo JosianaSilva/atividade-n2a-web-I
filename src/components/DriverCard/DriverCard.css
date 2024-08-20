@@ -65,11 +65,11 @@ body {
 }
 
 .driver-card__favorite-button.favorite {
-    background-color: #ff5733;
+    background-color: #a0000069;
 }
 
 .driver-card__favorite-button.favorite:hover {
-    background-color: #c70039; 
+    background-color: #a00000; 
 }
 
 
