@@ -103,14 +103,12 @@ function App() {
       </body>
       <footer>
         <div className='favorites-container'>
-          <fieldset id="search-favorites" className="favorites-fieldset">
-            <legend>Favoritos</legend>
-            <div className="favorites-cards">
-              {getFavorites().map((favorite, index) => (
-                <FavoriteCard key={index} favorite={favorite} />
-              ))}
-            </div>
-          </fieldset>
+          <h2 id="search-favorites">Favoritos</h2>
+          <div className="favorites-cards">
+                {getFavorites().map((favorite, index) => (
+                  <FavoriteCard key={index} favorite={favorite} />
+                ))}
+          </div>
         </div>
       </footer>
     </div>

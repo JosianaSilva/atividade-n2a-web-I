@@ -244,3 +244,7 @@ button#search-action {
   gap: 30px; 
   justify-content: center; 
 }
+
+.favorites-fildset {
+  border: 0;
+}
