@@ -27,6 +27,12 @@ export const removeFavorite = (driver) => {
     saveFavorites(favoritesList);
 };
 
+export const removeByName = (name) => {
+    let favoritesList = getStoredFavorites();
+    favoritesList = favoritesList.filter((item) => item.nome !== name);
+    saveFavorites(favoritesList);
+}
+
 export const isFavorite = (driver) => {
     const favoritesList = getStoredFavorites();
     return favoritesList.some((item) => item.id === driver.id);
