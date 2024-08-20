@@ -108,7 +108,7 @@
 /* Estilo do cabeçalho da aplicação */
 .App-header {
   background-color: white;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,7 +116,7 @@
   font-size: calc(10px + 2vmin);
   color: black;
 }
-body  {
+.main  {
   background-color: white;
   min-height: 100vh;
   display: flex;
@@ -127,7 +127,7 @@ body  {
   color: black;
 }
 /* Estilo do container do campo de pesquisa */
-body .search-container {
+.main .search-container {
   position: relative;
   width: 100%;
   max-width: 500px; 
