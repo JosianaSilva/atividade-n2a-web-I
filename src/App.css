@@ -30,24 +30,41 @@
   height: 40px;
 }
 
-.navbar-search-button {
+/* Container para os botões de pesquisa e favoritos */
+.navbar-buttons {
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
+  margin-right: 40px;
+  align-items: center;
+}
+
+.navbar-search-button, .navbar-favorites-button {
   background: none;
   border: none;
   color: #fff;
   font-size: 24px;
   cursor: pointer;
-  padding: 10px;
-  position: relative;
-  right: 30px;
+  padding: 5px;
 }
 
-.navbar-search-button i {
+.navbar-search-button i, .navbar-favorites-button i {
   font-size: 24px;
 }
 
+/* Ajuste de cor no botão de favoritos */
+.navbar-favorites-button {
+  color: #ffffff;
+}
+
+.navbar-favorites-button:hover {
+  color: #e0a800;
+}
+
+
 /* Adicionar margem ao conteúdo para evitar sobreposição com a navbar */
 .App-header {
-  margin-top: 50px; /* Ajuste conforme necessário */
+  margin-top: 35px; /* Ajuste conforme necessário */
 }
 
 /* Estilo do banner de fundo */
@@ -66,24 +83,24 @@
 @media (max-width: 768px) {
   .banner {
     height: 40vh; /* Reduz um pouco a altura em telas menores */
-    padding-top: 30px; /* Ajuste o padding-top para manter o conteúdo visível */
+    padding-top: 35px; /* Ajuste o padding-top para manter o conteúdo visível */
   }
 }
 
 @media (max-width: 480px) {
   .banner {
-    height: 40vh; /* Altura ainda menor em telas de celular */
+    height: 30vh; /* Altura ainda menor em telas de celular */
     padding-top: 30px;
   }
 }
 
-/* Media query para telas muito largas */
-@media (min-width: 1920px) {
+@media (min-width: 2560px) {
   .banner {
     height: 90vh; /* Mantém o banner visível sem exagerar na altura */
-    padding-top: 500px;
+    padding-top: 200px;
   }
 }
+
 
 /* Estilo do logotipo */
 .App-logo {
