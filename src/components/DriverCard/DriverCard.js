@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import './DriverCard.css'; 
 import { addFavorite, removeFavorite, isFavorite} from '../../services/favorite';
 
@@ -6,13 +6,13 @@ const DriverCard = ({ driver}) => {
     const {nome, img, podiums, nationality, world_championships } = driver;
 
 
-    const handleFavoriteClick = () => {
+    const handleFavoriteClick = useCallback(() => {
         if (!isFavorite(driver)) {
             addFavorite(driver);
         } else {
             removeFavorite(driver);
         }
-    };
+    }, [driver]);
 
     return (
         <div className="driver-card">
@@ -26,7 +26,7 @@ const DriverCard = ({ driver}) => {
                     className={`driver-card__favorite-button ${isFavorite(driver) ? 'favorite' : ''}`}
                     onClick={handleFavoriteClick}
                 >
-                    {isFavorite(driver) ? 'Unfavorite' : 'Favorite'}
+                    {isFavorite(driver) ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
                 </button>
             </div>
         </div>
