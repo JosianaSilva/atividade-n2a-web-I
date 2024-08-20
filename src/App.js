@@ -48,12 +48,24 @@ function App() {
       {/* Barra superior */}
       <nav className={`navbar ${isNavbarVisible ? 'visible' : 'hidden'}`}>
         <img src={logo} className="navbar-logo" alt="logo" />
-        <button
-          className="navbar-search-button"
-          onClick={() => document.getElementById('search-input').scrollIntoView({ behavior: 'smooth' })}
-        >
-          <i className="fas fa-search"></i>
-        </button>
+        
+        <div className="navbar-buttons">
+          
+          <button
+            className="navbar-favorites-button"
+            onClick={() => document.getElementById('search-favorites').scrollIntoView({ behavior: 'smooth' })}
+          >
+            <i className="fas fa-star"></i>
+          </button>
+
+          <button
+            className="navbar-search-button"
+            onClick={() => document.getElementById('search-input').scrollIntoView({ behavior: 'smooth' })}
+          >
+            <i className="fas fa-search"></i>
+          </button>
+
+        </div>
       </nav>
 
       <header className="App-header">
@@ -83,30 +95,26 @@ function App() {
         </div>
 
         <div className="search-results">
-        {drivers.length > 0 && <DriverCard driver={drivers[0]} />}
+          {drivers.length > 0 && <DriverCard driver={drivers[0]} />}
         </div>
 
         <div className='favorites-container'>
-
-          <fieldset class="favorites-fieldset">
-              <legend>Favoritos</legend>
-              <div class="favorites-cards">
-                {getFavorites().map((favorite, index) => (
-                <FavoriteCard favorite={favorite} />
+          <fieldset id="search-favorites" className="favorites-fieldset">
+            <legend>Favoritos</legend>
+            <div className="favorites-cards">
+              {getFavorites().map((favorite, index) => (
+                <FavoriteCard key={index} favorite={favorite} />
               ))}
-              </div>
+            </div>
           </fieldset>
-
-          
         </div>
-
-
       </header>
     </div>
   );
 }
 
 export default App;
+
 
 
 
