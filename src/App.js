@@ -71,7 +71,9 @@ function App() {
       <header className="App-header">
         <div className="banner">
         </div>
+      </header>
 
+      <body>
         {/* Container para o campo de input e o botão de pesquisa */}
         <div className="search-container">
           <input
@@ -98,6 +100,8 @@ function App() {
           {drivers.length > 0 && <DriverCard driver={drivers[0]} />}
         </div>
 
+      </body>
+      <footer>
         <div className='favorites-container'>
           <fieldset id="search-favorites" className="favorites-fieldset">
             <legend>Favoritos</legend>
@@ -108,7 +112,7 @@ function App() {
             </div>
           </fieldset>
         </div>
-      </header>
+      </footer>
     </div>
   );
 }

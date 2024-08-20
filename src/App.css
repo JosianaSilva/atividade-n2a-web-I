@@ -124,8 +124,22 @@
   color: black;
 }
 
+
+body  {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+
+
 /* Estilo do container do campo de pesquisa */
-.search-container {
+body .search-container {
   position: relative;
   width: 100%;
   max-width: 500px; 
@@ -221,6 +235,7 @@ button#search-action {
   }
 }
 
+
 /* Estilo do container de favoritos */
 .favorites-container {
   align-items: center;
@@ -233,7 +248,7 @@ button#search-action {
 .favorites-cards {
   margin: 30px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  /*flex-wrap: wrap;
+  align-items: center;*/
   gap: 0.5cm; 
 }
