@@ -15,6 +15,14 @@ body {
     background-color: #ffffff; 
 }
 
+@media (max-width: 768px) {
+    .driver-card {
+        flex-direction: column;
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
 .driver-card:hover {
     transform: translateY(-8px); 
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); 
