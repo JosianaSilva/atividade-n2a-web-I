@@ -74,6 +74,7 @@ function App() {
       </header>
 
       <div className="main">
+        <h1>PESQUISE POR UM PILOTO</h1>
         {/* Container para o campo de input e o botão de pesquisa */}
         <div className="search-container">
           <input
